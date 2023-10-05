@@ -135,15 +135,15 @@ body {
   background-color: var(--orange-500);
 }
 
-.operator {
+[data-type='operator'] {
   background-color: var(--grey-100);
 }
 
-.number {
+[data-type='number'] {
   background-color: white;
 }
 
-.number:active,
-.operator:active {
+[data-type='number']:active,
+[data-type='operator']:active {
   background-color: var(--grey-200);
 }

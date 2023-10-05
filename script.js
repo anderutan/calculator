@@ -8,10 +8,14 @@ keys.addEventListener('click', (event) => {
   const key = event.target;
   const keyValue = key.textContent;
   const displayValue = display.textContent;
+  const { type } = key.dataset;
+  const { previousKeyType } = calculator.dataset;
 
   // Is this a number keys?
-  if (key.dataset.type === 'number') {
+  if (type === 'number') {
     if (displayValue === '0') {
+      display.textContent = keyValue;
+    } else if (previousKeyType === 'operator') {
       display.textContent = keyValue;
     } else {
       display.textContent = displayValue + keyValue;
@@ -19,9 +23,9 @@ keys.addEventListener('click', (event) => {
   }
 
   // Is this a operator key?
-  if (key.dataset.type === 'operator') {
+  if (type === 'operator') {
     console.log(key);
-
-    calculator.dataset.previousKeyType = 'operator';
   }
+
+  calculator.dataset.previousKeyType = type;
 });
