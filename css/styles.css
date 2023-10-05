@@ -49,4 +49,105 @@ body {
  *******************/
 .calculator {
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+.calculator_display {
+  background-color: var(--grey-900);
+  color: var(--grey-050);
+  width: 16.25rem;
+  padding: 0.74rem 1rem;
+  text-align: right;
+  font-size: calc(1rem * 1.2 * 1.2);
+}
+
+.calculator_keys {
+  background-color: var(--grey-200);
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(4, auto);
+  grid-template-areas:
+    '. . . .'
+    'seven eight nine equal'
+    'four five six equal'
+    'one two three equal'
+    'zero decimal clear equal';
+}
+
+.calculator_keys > button {
+  border: 0;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.decimal {
+  grid-area: decimal;
+}
+.clear {
+  grid-area: clear;
+}
+
+.equal {
+  grid-area: equal;
+  background-color: var(--orange-400);
+}
+
+.equal:hover,
+.equal:focus {
+  grid-area: equal;
+  background-color: var(--orange-500);
+}
+
+.operator {
+  background-color: var(--grey-100);
+}
+
+.number {
+  background-color: white;
+}
+
+.number:hover,
+.number:focus,
+.operator:hover,
+.operator:focus {
+  background-color: var(--grey-200);
 }
