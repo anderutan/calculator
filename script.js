@@ -29,11 +29,30 @@ keys.addEventListener('click', (event) => {
       el.dataset.state = '';
     });
     key.dataset.state = 'selected';
+
+    calculator.dataset.firstNumber = displayValue;
+    calculator.dataset.operator = key.dataset.key;
   }
 
   if (type === 'equal') {
     // Perform a calculation
+    const firstNumber = calculator.dataset.firstNumber;
+    const operator = calculator.dataset.operator;
+    const secondNumber = displayValue;
+
+    display.textContent = calculate(firstNumber, operator, secondNumber);
   }
 
   calculator.dataset.previousKeyType = type;
 });
+
+function calculate(firstNumber, operator, secondNumber) {
+  firstNumber = parseInt(firstNumber);
+  secondNumber = parseInt(secondNumber);
+  let result = '';
+  if (operator === 'plus') result = firstNumber + secondNumber;
+  if (operator === 'minus') result = firstNumber - secondNumber;
+  if (operator === 'times') result = firstNumber * secondNumber;
+  if (operator === 'divide') result = firstNumber / secondNumber;
+  return result;
+}
