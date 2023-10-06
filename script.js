@@ -13,9 +13,7 @@ keys.addEventListener('click', (event) => {
 
   // Is this a number keys?
   if (type === 'number') {
-    if (displayValue === '0') {
-      display.textContent = keyValue;
-    } else if (previousKeyType === 'operator') {
+    if (displayValue === '0' || previousKeyType === 'operator') {
       display.textContent = keyValue;
     } else {
       display.textContent = displayValue + keyValue;
@@ -49,10 +47,9 @@ keys.addEventListener('click', (event) => {
 function calculate(firstNumber, operator, secondNumber) {
   firstNumber = parseInt(firstNumber);
   secondNumber = parseInt(secondNumber);
-  let result = '';
-  if (operator === 'plus') result = firstNumber + secondNumber;
-  if (operator === 'minus') result = firstNumber - secondNumber;
-  if (operator === 'times') result = firstNumber * secondNumber;
-  if (operator === 'divide') result = firstNumber / secondNumber;
-  return result;
+
+  if (operator === 'plus') return firstNumber + secondNumber;
+  if (operator === 'minus') return firstNumber - secondNumber;
+  if (operator === 'times') return firstNumber * secondNumber;
+  if (operator === 'divide') return firstNumber / secondNumber;
 }
