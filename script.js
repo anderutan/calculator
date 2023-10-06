@@ -24,7 +24,15 @@ keys.addEventListener('click', (event) => {
 
   // Is this a operator key?
   if (type === 'operator') {
-    console.log(key);
+    const operatorKeys = keys.querySelectorAll('[data-type="operator"]');
+    operatorKeys.forEach((el) => {
+      el.dataset.state = '';
+    });
+    key.dataset.state = 'selected';
+  }
+
+  if (type === 'equal') {
+    // Perform a calculation
   }
 
   calculator.dataset.previousKeyType = type;

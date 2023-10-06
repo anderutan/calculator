@@ -147,3 +147,7 @@ body {
 [data-type='operator']:active {
   background-color: var(--grey-200);
 }
+
+[data-state='selected'] {
+  background-color: var(--grey-200);
+}
